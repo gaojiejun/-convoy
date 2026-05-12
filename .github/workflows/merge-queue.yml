@@ -1,0 +1,19 @@
+name: Merge Queue Validation
+
+on:
+  merge_group:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run validation
+        run: bash scripts/validate.sh
+
+      - name: Mark success
+        run: echo "✅ Merge queue validation succeeded"
