@@ -24,7 +24,7 @@ else
 fi
 
 echo "Top ${COUNT} Commit(s):"
-git log --oneline -n "$COUNT"
+git log --pretty=format:"  commit: %H%n  author: %an <%ae>%n  date:   %ad%n  message: %s%n" --date=format:"%Y-%m-%d %H:%M:%S" -n "$COUNT"
 echo ""
 
 echo "===== Validation Passed ====="
